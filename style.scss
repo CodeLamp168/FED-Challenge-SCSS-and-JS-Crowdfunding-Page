@@ -1,0 +1,826 @@
+@import url('https://fonts.googleapis.com/css2?family=Commissioner:wght@400;500;700&display=swap');
+
+*, *::before, *::after {
+    box-sizing:border-box;
+    font-family: inherit;
+    padding:0;
+    margin:0;
+}
+
+* {
+    font-family:'Commissioner';
+}
+
+
+
+body {
+
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-image:url(./images/image-hero-desktop.jpg);
+    background-size:contain;
+    background-repeat: no-repeat;
+    background-position:top;
+    background-size: 100%;
+    p, h2 {
+        font-size:1rem;
+    }
+
+    header {
+        display:flex;
+        width:80%;
+        justify-content: space-between;
+        padding:2em;
+        position:relative;
+
+        nav  {
+
+            a {
+                color:white;
+                text-decoration: none;
+                padding-right:1em;
+                position:relative;
+
+                &:after {
+                    content: "";
+                    display: block;
+                    width: 0%;
+                    height: 2px;
+                    background-color:hsl(176, 72%, 28%);
+                    position: absolute;
+                    bottom: -5px;
+                    left: 0;
+                    transition:0.3s ease-in-out;
+                    
+                }
+
+                &:hover {
+                    transition: width 0.3s ease;
+                    &:after {
+
+                        width: 40%;
+                        
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+
+@mixin btn-style() {
+    color:white;
+    font-weight:500;
+    background-color:hsl(176, 72%, 28%);
+    padding:10px;
+    border-radius:20px;
+    border:none;
+    cursor:pointer;
+    width:150px;
+    transition:transform 0.1s ease-in, background-color 0.2s ease-in-out;
+
+    &:hover {
+        transform:scale(1.1);
+        background-color:hsl(176, 50%, 47%);
+    }
+}
+
+
+
+
+.mobile-burger, .exit-nav {
+    cursor:pointer;
+    display:none;
+    z-index:3;
+}
+
+
+.main-card-container {
+    min-height:110vh;
+    z-index:1;
+
+    .container {
+        display:flex;
+        flex-direction: column;
+        background-color: white;
+        max-width:850px;
+        margin-top:1em;
+        padding:0.5em;
+        border-radius:20px;
+        border:1px solid rgba(0, 0, 0, 0.192);
+        box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.034);
+    }
+
+    .head-container {
+        text-align: center;
+        padding:3em 1em;
+        position:relative;
+
+        h1 {
+            font-size:30px
+        }
+
+        p {
+            padding:1em 0;
+            font-weight:400;
+        }
+
+        .head-btn-flex {
+            display:flex;
+            justify-content: space-around;
+
+            .back-project {
+                @include btn-style()
+            }
+
+            .bookmark-btn-design {
+                border:none;
+                background:none;
+                cursor:pointer;
+            }
+        }
+
+   
+
+    }
+
+    .stat-container {
+        padding:2em 2em;
+        .stats {
+            display:flex;
+            align-items: center;
+            text-align: center;
+            h2 {
+                font-size:30px;
+                padding:0em 1.5em;
+                position:relative;
+
+                p {
+                    font-size:14px;
+                    color:grey;
+                    font-weight:500;
+                }
+            }
+           
+        }
+
+        .progress-bar {
+            margin-top:1.5em;
+            width:100%;
+            height:10px;
+            border-radius:10px;
+            background-color:rgba(197, 197, 197, 0.685);
+            position:relative;
+
+            &::before {
+                content:'';
+                background-color:hsl(176, 50%, 47%);
+                width:80%;
+                position:absolute;
+                height:10px;
+                border-radius:10px;
+            }
+        }
+    }
+
+    .about-pledge-container {
+
+        padding:1.5em;
+
+        p {
+            margin-top:1em;
+        }
+        .reward-container {
+            border: 1px solid hsl(0, 0%, 48%);
+            border-radius:5px;
+            padding:1.5em;
+            margin-top:20px;
+            text-align: left;
+
+            .mobile-flex, .desktop-flex {
+
+                p {
+                    color:hsl(176, 50%, 47%);
+                    cursor:pointer;
+                    font-weight:500;
+                }
+
+                small {
+                    font-size:13px;
+                    color:grey;
+                    font-weight:400;
+                }
+
+                button {
+                 @include btn-style()
+                }
+
+                .out-of-stock {
+                    background-color:hsl(0, 0%, 48%);
+                    &:hover {
+                        transform:scale(1);
+                        background-color:hsl(0, 0%, 48%);
+                    }
+
+
+                }
+            }
+        }
+
+    }
+}
+
+.bookmark-btn-design {
+    position:relative;
+    display:flex;
+    align-items: center;
+    z-index:2;
+
+            &:hover{ 
+                transition: transform 0.1s ease-in-out;
+                transform:scale(1.1)
+            }
+}
+
+.bookmark-btn-design::after {
+    content:'Bookmarked';
+    overflow:hidden;
+    background:rgba(128, 128, 128, 0.274);
+    width:0px;
+    text-align: end;
+    padding:15px;
+    margin-left:-10px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    position:relative;
+    transform:translateX(-33px);
+    z-index:-1;
+    transition: transform 0.3s ease-in-out, width 0.3s ease-in-out, padding 0.3s ease-in-out;
+}
+
+.active::after {
+    width: 150px;
+    padding: 18px;
+    transform: translateX(-20px);
+}
+
+//Popup modal design
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.349);
+    z-index: 2;
+}
+
+.no-stock-pledge, .out-of-stock {
+    opacity:0.5;
+    cursor:auto;
+}
+
+.pop-up {
+    display:none;
+    position: absolute;
+    background-color:white;
+    max-width:850px;
+    margin:20px;
+    padding:2em;
+    z-index:3;
+    border-radius:10px;
+    border:1px solid rgba(0, 0, 0, 0.192);
+    overflow: auto;
+
+    .exit-pop-up {
+        position:absolute;
+        right:40px;
+        top:3em;
+        cursor:pointer;
+    }
+
+
+
+
+   
+    .pop-up-header {
+        padding-bottom:0.8em;
+    }
+
+    .pop-up-para {
+        padding-bottom:2em;
+    }
+
+    .pledge-container.active {
+        border:3px solid hsl(176, 50%, 47%);
+    }
+
+
+
+    .pledge-container {
+        transition: border 0.3s ease-in;
+        padding: 10px;
+        display: flex;
+        align-items: left;
+        flex-wrap: wrap;
+        flex-direction:column;
+        height:auto;
+        gap:1em;
+        border: 2px solid grey;
+        border-radius:10px;
+        padding:2em;
+        position:relative;
+        cursor:pointer;
+        background-color:white;
+        margin-bottom:1em;
+
+        
+
+
+   
+    
+    
+        .pledge-checkbox {
+            margin-right: 10px;
+            display:none;
+        }
+
+          
+    
+        .pledge-text-container {
+            flex: 1;
+            align-items: left;
+            display: flex;
+            flex-wrap: wrap;
+            position:relative;
+
+            &:before {
+                content: "";
+                display: inline-block;
+                width: 25px;
+                height: 25px;
+                border-radius: 50%;
+                margin-right: 10px;
+                border: 2px solid #ccc;
+                vertical-align: middle;
+            }
+
+            
+            .pledge-heading {
+                margin-right: 10px;
+                margin-bottom: 10px;
+            }
+    
+            .pledge-amount {
+                margin-right: 10px;
+                margin-bottom: 10px;
+                font-weight:500;
+                margin-top:1px;
+
+                color:hsl(176, 50%, 47%)
+            }
+
+            .pledge-left {
+                margin: 1em 0px;
+            }
+            
+        
+           
+        }
+
+        .active-check {
+            &:after {
+                content: "";
+            display: inline-block;
+            width: 13px;
+            height: 13px;
+            border-radius: 50%;
+            margin-right: 10px;
+            background-color: hsl(176, 50%, 47%);
+            position:absolute;
+            left:6.2px;
+            margin-top:0.4em;
+        }
+    }
+
+        
+    
+        .pledge-info-container {
+            display:flex;
+            transition:transform 0.5s ease-in-out, height 0.5s ease-in, opacity 0.2s ease-in-out;
+            transform:translateY(-150px);
+            height:0px;
+            opacity:0;
+            overflow:hidden;
+
+
+            .pledge-input-container {
+                position:relative;
+            
+                &:not(:nth-child(1)) {
+                    &::after {
+                        content: '$';
+                        position: absolute;
+                        z-index:3;
+                        color:hsl(176, 50%, 47%);
+                        bottom:18px;
+                        left:16px;
+                        font-size:20px;
+                    }
+                }
+            }
+
+
+
+            p {
+                margin:2em 0em;
+            }
+
+
+            input[type=number] {
+                padding:20px;
+                border-radius:30px;
+                border:1px solid grey;
+                max-width:120px;
+                text-align: center;
+                color:black;
+                -moz-appearance:textfield;
+                position:relative;
+
+                &::placeholder{
+                    color:rgb(5, 5, 5);
+                    font-size:18px;
+                    font-family:'Commissioner';
+                    opacity:1;
+                }
+
+                &:focus {
+                    outline:none;
+                }
+
+            }
+
+
+
+            input::-webkit-outer-spin-button,
+            input::-webkit-inner-spin-button {
+           /* display: none; <- Crashes Chrome on hover */
+            -webkit-appearance: none;
+             margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+            }
+
+
+            .pledge-input-container {
+                align-items: center;
+                display: flex;
+                flex-wrap:nowrap;
+                gap:1em;
+                
+    
+                .pledge-enter{
+                    margin-bottom: 10px;
+                }
+
+                button {
+                    padding:20px;
+                    border-radius:30px;
+                    background:hsl(176, 50%, 47%);
+                    color:white;
+                    border:none;
+                    max-width:150px;
+                    text-align: center;
+                    cursor:pointer;
+                    transition: transform 0.3s ease-in-out;
+
+                    &:hover {
+                        transform:scale(1.1)
+                    }
+                }
+
+
+            }
+        }
+
+        .pledge-info-container.active {
+            overflow:visible;
+            opacity:1;
+            transform:translateY(0px);
+            transition-property:transform, opacity, height;
+            transition-delay:0.5s, 0.8s, 0.4s;
+            height:150px;
+        }
+
+       
+
+    }
+}
+
+.pop-up-purchase-complete {
+    display:none;
+    position:fixed;
+    text-align: center;
+    padding:1em 2em;
+    background-color:white;
+    max-width:420px;
+    border-radius:10px;
+    overflow:hidden;
+    transition: 0.3s ease-in-out max-height;
+    border:1px solid hsl(0, 0%, 48%);
+    box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.034);
+    z-index:5;
+    top:30%;
+    img {
+        max-width:100%;
+        height:auto;
+    }
+
+    h1, p, img, button{
+
+        margin-top:1em;
+
+    }
+
+    h1 {
+        font-size:23px;
+        font-weight:700;
+
+    }
+
+    p {
+        font: size 15px;
+        color:hsl(0, 0%, 48%);
+        line-height:25px;
+    }
+
+    button {
+        padding:20px;
+        border-radius:30px;
+        background:hsl(176, 50%, 47%);
+        color:white;
+        border:none;
+        width:130px;
+        text-align: center;
+        cursor:pointer;
+        margin-bottom:1em;
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@mixin responsive-layout {
+    @media (max-width: 767px)
+    {
+        background-image: url(./images/image-hero-mobile.jpg);
+
+        .head-container {
+  
+            &::before {
+                content:url(./images/logo-mastercraft.svg);
+                position:absolute;
+                left:44%;
+                top:-10%;
+                
+            }
+    
+        }
+        //mobile
+        .mobile-burger {
+            display:block;
+        }
+
+
+        .container {
+            width:340px;
+
+        }
+
+        .mobile-nav {
+            display:flex;
+            flex-direction: column;
+            background-color:white;
+            position:absolute;
+            z-index:3;
+            transition: top 0.3s ease-in-out;
+            width:85%;
+            top:-300%;
+            border-radius:20px;
+
+
+            a {
+                padding:1em;
+                color:black;
+                font-weight:500;
+                border-bottom:rgba(128, 128, 128, 0.404) 1px solid;
+
+
+                &:after {
+                    bottom: 10px;
+                    left: 6px;
+                }
+
+                &:hover {
+                    transition: width 0.3s ease;
+                    &:after {
+
+                        width: 20%;
+                        
+                    }
+                }
+            }
+
+            a:nth-child(3) {
+                border-bottom:none;
+            }
+        }
+
+        .nav-active{
+            top:85%;
+        }
+
+        .stats {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .reward-container {
+            display:flex;
+            flex-direction:column;
+            align-items: flex-start;
+            text-align: center;
+
+            .mobile-flex {
+                display:flex;
+                flex-direction: column;
+            }
+        }
+
+        .bookmark-btn-design::after {
+            content:none;
+        }
+
+        .active::after {
+            content:none;
+        }
+
+        .pledge-info-container {
+            justify-content: center;
+            align-items:center;
+            flex-direction:column;
+
+            .pledge-input-container {
+                button, input {
+                    width:150px;
+                }
+            }
+        }
+
+        .pop-up {
+            min-width:320px;
+
+            .pledge-container {
+                padding:1em 15px;
+            }
+
+
+
+        }
+        
+        
+ 
+    }
+
+    @media (min-width: 768px) and (max-width: 991px)
+    {
+        //tablet
+        body {
+            background-image: url('./images/image-hero-desktop.jpg');
+        }
+
+        .desktop-set {
+            position:absolute;
+            top:500%;
+            z-index:-3;
+        }
+
+
+
+
+        .reward-container {
+
+            .desktop-flex {
+                display:flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+        }
+
+        .head-container {
+  
+            &::before {
+                content:url(./images/logo-mastercraft.svg);
+                position:absolute;
+                left:46.9%;
+                top:-10%;
+                
+            }
+        }
+
+        .pledge-info-container {
+            justify-content: space-between;
+            align-items:flex-end;
+            flex-direction:row;
+        }
+
+
+
+
+
+    }
+
+    @media(min-width:992px)
+    {
+        //desktop
+        body{
+            background-image: url(./images/image-hero-desktop.jpg);
+        }
+
+        .main-card-container {
+            margin:10em;
+        }
+
+        .desktop-set {
+            position:absolute;
+            z-index:-3;
+            top:-1000%;
+        }
+
+   
+
+       
+
+        .reward-container {
+
+            .desktop-flex {
+                display:flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+
+        }
+
+        .head-container {
+  
+            &::before {
+                content:url(./images/logo-mastercraft.svg);
+                position:absolute;
+                left:46.7%;
+                top:-10%;
+                
+            }
+    
+        }
+
+        .pledge-info-container {
+            justify-content: space-between;
+            align-items:flex-end;
+            flex-direction:row;
+        }
+
+        .pop-up {
+            top:90px;
+        }
+
+
+
+
+    }
+}
+
+body {
+    @include responsive-layout();
+
+}
+

@@ -1,0 +1,610 @@
+@import url("https://fonts.googleapis.com/css2?family=Commissioner:wght@400;500;700&display=swap");
+*, *::before, *::after {
+  box-sizing: border-box;
+  font-family: inherit;
+  padding: 0;
+  margin: 0;
+}
+
+* {
+  font-family: "Commissioner";
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-image: url(./images/image-hero-desktop.jpg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: top;
+  background-size: 100%;
+}
+body p, body h2 {
+  font-size: 1rem;
+}
+body header {
+  display: flex;
+  width: 80%;
+  justify-content: space-between;
+  padding: 2em;
+  position: relative;
+}
+body header nav a {
+  color: white;
+  text-decoration: none;
+  padding-right: 1em;
+  position: relative;
+}
+body header nav a:after {
+  content: "";
+  display: block;
+  width: 0%;
+  height: 2px;
+  background-color: hsl(176deg, 72%, 28%);
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  transition: 0.3s ease-in-out;
+}
+body header nav a:hover {
+  transition: width 0.3s ease;
+}
+body header nav a:hover:after {
+  width: 40%;
+}
+
+.mobile-burger, .exit-nav {
+  cursor: pointer;
+  display: none;
+  z-index: 3;
+}
+
+.main-card-container {
+  min-height: 110vh;
+  z-index: 1;
+}
+.main-card-container .container {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  max-width: 850px;
+  margin-top: 1em;
+  padding: 0.5em;
+  border-radius: 20px;
+  border: 1px solid rgba(0, 0, 0, 0.192);
+  box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.034);
+}
+.main-card-container .head-container {
+  text-align: center;
+  padding: 3em 1em;
+  position: relative;
+}
+.main-card-container .head-container h1 {
+  font-size: 30px;
+}
+.main-card-container .head-container p {
+  padding: 1em 0;
+  font-weight: 400;
+}
+.main-card-container .head-container .head-btn-flex {
+  display: flex;
+  justify-content: space-around;
+}
+.main-card-container .head-container .head-btn-flex .back-project {
+  color: white;
+  font-weight: 500;
+  background-color: hsl(176deg, 72%, 28%);
+  padding: 10px;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+  width: 150px;
+  transition: transform 0.1s ease-in, background-color 0.2s ease-in-out;
+}
+.main-card-container .head-container .head-btn-flex .back-project:hover {
+  transform: scale(1.1);
+  background-color: hsl(176deg, 50%, 47%);
+}
+.main-card-container .head-container .head-btn-flex .bookmark-btn-design {
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+.main-card-container .stat-container {
+  padding: 2em 2em;
+}
+.main-card-container .stat-container .stats {
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+.main-card-container .stat-container .stats h2 {
+  font-size: 30px;
+  padding: 0em 1.5em;
+  position: relative;
+}
+.main-card-container .stat-container .stats h2 p {
+  font-size: 14px;
+  color: grey;
+  font-weight: 500;
+}
+.main-card-container .stat-container .progress-bar {
+  margin-top: 1.5em;
+  width: 100%;
+  height: 10px;
+  border-radius: 10px;
+  background-color: rgba(197, 197, 197, 0.685);
+  position: relative;
+}
+.main-card-container .stat-container .progress-bar::before {
+  content: "";
+  background-color: hsl(176deg, 50%, 47%);
+  width: 80%;
+  position: absolute;
+  height: 10px;
+  border-radius: 10px;
+}
+.main-card-container .about-pledge-container {
+  padding: 1.5em;
+}
+.main-card-container .about-pledge-container p {
+  margin-top: 1em;
+}
+.main-card-container .about-pledge-container .reward-container {
+  border: 1px solid hsl(0deg, 0%, 48%);
+  border-radius: 5px;
+  padding: 1.5em;
+  margin-top: 20px;
+  text-align: left;
+}
+.main-card-container .about-pledge-container .reward-container .mobile-flex p, .main-card-container .about-pledge-container .reward-container .desktop-flex p {
+  color: hsl(176deg, 50%, 47%);
+  cursor: pointer;
+  font-weight: 500;
+}
+.main-card-container .about-pledge-container .reward-container .mobile-flex small, .main-card-container .about-pledge-container .reward-container .desktop-flex small {
+  font-size: 13px;
+  color: grey;
+  font-weight: 400;
+}
+.main-card-container .about-pledge-container .reward-container .mobile-flex button, .main-card-container .about-pledge-container .reward-container .desktop-flex button {
+  color: white;
+  font-weight: 500;
+  background-color: hsl(176deg, 72%, 28%);
+  padding: 10px;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+  width: 150px;
+  transition: transform 0.1s ease-in, background-color 0.2s ease-in-out;
+}
+.main-card-container .about-pledge-container .reward-container .mobile-flex button:hover, .main-card-container .about-pledge-container .reward-container .desktop-flex button:hover {
+  transform: scale(1.1);
+  background-color: hsl(176deg, 50%, 47%);
+}
+.main-card-container .about-pledge-container .reward-container .mobile-flex .out-of-stock, .main-card-container .about-pledge-container .reward-container .desktop-flex .out-of-stock {
+  background-color: hsl(0deg, 0%, 48%);
+}
+.main-card-container .about-pledge-container .reward-container .mobile-flex .out-of-stock:hover, .main-card-container .about-pledge-container .reward-container .desktop-flex .out-of-stock:hover {
+  transform: scale(1);
+  background-color: hsl(0deg, 0%, 48%);
+}
+
+.bookmark-btn-design {
+  position: relative;
+  display: flex;
+  align-items: center;
+  z-index: 2;
+}
+.bookmark-btn-design:hover {
+  transition: transform 0.1s ease-in-out;
+  transform: scale(1.1);
+}
+
+.bookmark-btn-design::after {
+  content: "Bookmarked";
+  overflow: hidden;
+  background: rgba(128, 128, 128, 0.274);
+  width: 0px;
+  text-align: end;
+  padding: 15px;
+  margin-left: -10px;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  position: relative;
+  transform: translateX(-33px);
+  z-index: -1;
+  transition: transform 0.3s ease-in-out, width 0.3s ease-in-out, padding 0.3s ease-in-out;
+}
+
+.active::after {
+  width: 150px;
+  padding: 18px;
+  transform: translateX(-20px);
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.349);
+  z-index: 2;
+}
+
+.no-stock-pledge, .out-of-stock {
+  opacity: 0.5;
+  cursor: auto;
+}
+
+.pop-up {
+  display: none;
+  position: absolute;
+  background-color: white;
+  max-width: 850px;
+  margin: 20px;
+  padding: 2em;
+  z-index: 3;
+  border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.192);
+  overflow: auto;
+}
+.pop-up .exit-pop-up {
+  position: absolute;
+  right: 40px;
+  top: 3em;
+  cursor: pointer;
+}
+.pop-up .pop-up-header {
+  padding-bottom: 0.8em;
+}
+.pop-up .pop-up-para {
+  padding-bottom: 2em;
+}
+.pop-up .pledge-container.active {
+  border: 3px solid hsl(176deg, 50%, 47%);
+}
+.pop-up .pledge-container {
+  transition: border 0.3s ease-in;
+  padding: 10px;
+  display: flex;
+  align-items: left;
+  flex-wrap: wrap;
+  flex-direction: column;
+  height: auto;
+  gap: 1em;
+  border: 2px solid grey;
+  border-radius: 10px;
+  padding: 2em;
+  position: relative;
+  cursor: pointer;
+  background-color: white;
+  margin-bottom: 1em;
+}
+.pop-up .pledge-container .pledge-checkbox {
+  margin-right: 10px;
+  display: none;
+}
+.pop-up .pledge-container .pledge-text-container {
+  flex: 1;
+  align-items: left;
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+}
+.pop-up .pledge-container .pledge-text-container:before {
+  content: "";
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  margin-right: 10px;
+  border: 2px solid #ccc;
+  vertical-align: middle;
+}
+.pop-up .pledge-container .pledge-text-container .pledge-heading {
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+.pop-up .pledge-container .pledge-text-container .pledge-amount {
+  margin-right: 10px;
+  margin-bottom: 10px;
+  font-weight: 500;
+  margin-top: 1px;
+  color: hsl(176deg, 50%, 47%);
+}
+.pop-up .pledge-container .pledge-text-container .pledge-left {
+  margin: 1em 0px;
+}
+.pop-up .pledge-container .active-check:after {
+  content: "";
+  display: inline-block;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  margin-right: 10px;
+  background-color: hsl(176deg, 50%, 47%);
+  position: absolute;
+  left: 6.2px;
+  margin-top: 0.4em;
+}
+.pop-up .pledge-container .pledge-info-container {
+  display: flex;
+  transition: transform 0.5s ease-in-out, height 0.5s ease-in, opacity 0.2s ease-in-out;
+  transform: translateY(-150px);
+  height: 0px;
+  opacity: 0;
+  overflow: hidden;
+}
+.pop-up .pledge-container .pledge-info-container .pledge-input-container {
+  position: relative;
+}
+.pop-up .pledge-container .pledge-info-container .pledge-input-container:not(:nth-child(1))::after {
+  content: "$";
+  position: absolute;
+  z-index: 3;
+  color: hsl(176deg, 50%, 47%);
+  bottom: 18px;
+  left: 16px;
+  font-size: 20px;
+}
+.pop-up .pledge-container .pledge-info-container p {
+  margin: 2em 0em;
+}
+.pop-up .pledge-container .pledge-info-container input[type=number] {
+  padding: 20px;
+  border-radius: 30px;
+  border: 1px solid grey;
+  max-width: 120px;
+  text-align: center;
+  color: black;
+  -moz-appearance: textfield;
+  position: relative;
+}
+.pop-up .pledge-container .pledge-info-container input[type=number]::-moz-placeholder {
+  color: rgb(5, 5, 5);
+  font-size: 18px;
+  font-family: "Commissioner";
+  opacity: 1;
+}
+.pop-up .pledge-container .pledge-info-container input[type=number]:-ms-input-placeholder {
+  color: rgb(5, 5, 5);
+  font-size: 18px;
+  font-family: "Commissioner";
+  opacity: 1;
+}
+.pop-up .pledge-container .pledge-info-container input[type=number]::placeholder {
+  color: rgb(5, 5, 5);
+  font-size: 18px;
+  font-family: "Commissioner";
+  opacity: 1;
+}
+.pop-up .pledge-container .pledge-info-container input[type=number]:focus {
+  outline: none;
+}
+.pop-up .pledge-container .pledge-info-container input::-webkit-outer-spin-button,
+.pop-up .pledge-container .pledge-info-container input::-webkit-inner-spin-button {
+  /* display: none; <- Crashes Chrome on hover */
+  -webkit-appearance: none;
+  margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+.pop-up .pledge-container .pledge-info-container .pledge-input-container {
+  align-items: center;
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 1em;
+}
+.pop-up .pledge-container .pledge-info-container .pledge-input-container .pledge-enter {
+  margin-bottom: 10px;
+}
+.pop-up .pledge-container .pledge-info-container .pledge-input-container button {
+  padding: 20px;
+  border-radius: 30px;
+  background: hsl(176deg, 50%, 47%);
+  color: white;
+  border: none;
+  max-width: 150px;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+}
+.pop-up .pledge-container .pledge-info-container .pledge-input-container button:hover {
+  transform: scale(1.1);
+}
+.pop-up .pledge-container .pledge-info-container.active {
+  overflow: visible;
+  opacity: 1;
+  transform: translateY(0px);
+  transition-property: transform, opacity, height;
+  transition-delay: 0.5s, 0.8s, 0.4s;
+  height: 150px;
+}
+
+.pop-up-purchase-complete {
+  display: none;
+  position: fixed;
+  text-align: center;
+  padding: 1em 2em;
+  background-color: white;
+  max-width: 420px;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: 0.3s ease-in-out max-height;
+  border: 1px solid hsl(0deg, 0%, 48%);
+  box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.034);
+  z-index: 5;
+  top: 30%;
+}
+.pop-up-purchase-complete img {
+  max-width: 100%;
+  height: auto;
+}
+.pop-up-purchase-complete h1, .pop-up-purchase-complete p, .pop-up-purchase-complete img, .pop-up-purchase-complete button {
+  margin-top: 1em;
+}
+.pop-up-purchase-complete h1 {
+  font-size: 23px;
+  font-weight: 700;
+}
+.pop-up-purchase-complete p {
+  font: size 15px;
+  color: hsl(0deg, 0%, 48%);
+  line-height: 25px;
+}
+.pop-up-purchase-complete button {
+  padding: 20px;
+  border-radius: 30px;
+  background: hsl(176deg, 50%, 47%);
+  color: white;
+  border: none;
+  width: 130px;
+  text-align: center;
+  cursor: pointer;
+  margin-bottom: 1em;
+}
+
+@media (max-width: 767px) {
+  body {
+    background-image: url(./images/image-hero-mobile.jpg);
+  }
+  body .head-container::before {
+    content: url(./images/logo-mastercraft.svg);
+    position: absolute;
+    left: 44%;
+    top: -10%;
+  }
+  body .mobile-burger {
+    display: block;
+  }
+  body .container {
+    width: 340px;
+  }
+  body .mobile-nav {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    position: absolute;
+    z-index: 3;
+    transition: top 0.3s ease-in-out;
+    width: 85%;
+    top: -300%;
+    border-radius: 20px;
+  }
+  body .mobile-nav a {
+    padding: 1em;
+    color: black;
+    font-weight: 500;
+    border-bottom: rgba(128, 128, 128, 0.404) 1px solid;
+  }
+  body .mobile-nav a:after {
+    bottom: 10px;
+    left: 6px;
+  }
+  body .mobile-nav a:hover {
+    transition: width 0.3s ease;
+  }
+  body .mobile-nav a:hover:after {
+    width: 20%;
+  }
+  body .mobile-nav a:nth-child(3) {
+    border-bottom: none;
+  }
+  body .nav-active {
+    top: 85%;
+  }
+  body .stats {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  body .reward-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: center;
+  }
+  body .reward-container .mobile-flex {
+    display: flex;
+    flex-direction: column;
+  }
+  body .bookmark-btn-design::after {
+    content: none;
+  }
+  body .active::after {
+    content: none;
+  }
+  body .pledge-info-container {
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  body .pledge-info-container .pledge-input-container button, body .pledge-info-container .pledge-input-container input {
+    width: 150px;
+  }
+  body .pop-up {
+    min-width: 320px;
+  }
+  body .pop-up .pledge-container {
+    padding: 1em 15px;
+  }
+}
+@media (min-width: 768px) and (max-width: 991px) {
+  body body {
+    background-image: url("./images/image-hero-desktop.jpg");
+  }
+  body .desktop-set {
+    position: absolute;
+    top: 500%;
+    z-index: -3;
+  }
+  body .reward-container .desktop-flex {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  body .head-container::before {
+    content: url(./images/logo-mastercraft.svg);
+    position: absolute;
+    left: 46.9%;
+    top: -10%;
+  }
+  body .pledge-info-container {
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-direction: row;
+  }
+}
+@media (min-width: 992px) {
+  body body {
+    background-image: url(./images/image-hero-desktop.jpg);
+  }
+  body .main-card-container {
+    margin: 10em;
+  }
+  body .desktop-set {
+    position: absolute;
+    z-index: -3;
+    top: -1000%;
+  }
+  body .reward-container .desktop-flex {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  body .head-container::before {
+    content: url(./images/logo-mastercraft.svg);
+    position: absolute;
+    left: 46.7%;
+    top: -10%;
+  }
+  body .pledge-info-container {
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-direction: row;
+  }
+  body .pop-up {
+    top: 90px;
+  }
+}/*# sourceMappingURL=style.css.map */
